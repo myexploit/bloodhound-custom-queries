@@ -4,7 +4,7 @@ Open up the customqueries.json file location C:\Users\Add-Account-Name\AppData\R
 
 
         {
-            "name": "All Computers without LAPS - enabled",
+            "name": "All computers without LAPS and the computer is enabled",
             "queryList": [
                 {
                     "final": true,
