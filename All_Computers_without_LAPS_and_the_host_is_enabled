@@ -1,4 +1,4 @@
-Bloodhound custom queries to find all enmabled Windows hosts without LAPS enabled.
+Bloodhound custom queries to find all enabled Windows hosts without LAPS enabled.
 
 Open up the customqueries.json file location C:\Users\Add-Account-Name\AppData\Roaming\bloodhound\customqueries.json then add the following custom queries to hunt out Windows OS versions. Once saved hit the refresh key under custom queries section.
 
