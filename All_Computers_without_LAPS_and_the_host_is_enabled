@@ -1,0 +1,10 @@
+
+        {
+            "name": "All Computers without LAPS - enabled",
+            "queryList": [
+                {
+                    "final": true,
+                    "query": "MATCH p = (d:Domain)-[r:Contains*1..]->(c:Computer) WHERE c.haslaps = false AND c.enabled = true RETURN p"
+                }
+            ]
+        },
