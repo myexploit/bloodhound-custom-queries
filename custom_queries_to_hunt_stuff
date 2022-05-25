@@ -1,0 +1,339 @@
+Bloodhound custom queries to help you locate stuff.
+
+Open up the customqueries.json file location C:\Users\Add-Account-Name\AppData\Roaming\bloodhound\customqueries.json and add the below.
+	
+	 {
+            "name": "1. Find Server 2000",
+            "queryList": [
+                {
+                    "final": true,
+                    "query": "MATCH (H:Computer) WHERE H.operatingsystem =~ '(?i).*(2000).*' RETURN H"
+                }
+            ]
+        },
+
+ {
+            "name": "2. Find Server 2000 with session",
+            "queryList": [
+                {
+                    "final": true,
+                    "query": "MATCH (H:Computer)-[:HasSession]->(y) WHERE H.operatingsystem =~ '(?i).*(2000).*' RETURN H"
+                }
+            ]
+        },
+
+ {
+            "name": "3. Find Server 2003",
+            "queryList": [
+                {
+                    "final": true,
+                    "query": "MATCH (H:Computer) WHERE H.operatingsystem =~ '(?i).*(2003).*' RETURN H"
+                }
+            ]
+        },
+
+ {
+            "name": "4. Find Server 2003 with session",
+            "queryList": [
+                {
+                    "final": true,
+                    "query": "MATCH (H:Computer)-[:HasSession]->(y) WHERE H.operatingsystem =~ '(?i).*(2003).*' RETURN H"
+                }
+            ]
+        },
+
+ {
+            "name": "4a. Find Server 2003 enabled",
+            "queryList": [
+                {
+                    "final": true,
+                    "query": "MATCH (H:Computer) WHERE H.operatingsystem =~ '(?i).*(2003).*' AND H.enabled = true  RETURN H"
+                }
+            ]
+        },
+
+ {
+            "name": "5. Find Server 2008",
+            "queryList": [
+                {
+                    "final": true,
+                    "query": "MATCH (H:Computer) WHERE H.operatingsystem =~ '(?i).*(2008).*' RETURN H"
+                }
+            ]
+        },
+
+ {
+            "name": "6. Find Server 2008 with session",
+            "queryList": [
+                {
+                    "final": true,
+                    "query": "MATCH (H:Computer)-[:HasSession]->(y) WHERE H.operatingsystem =~ '(?i).*(2008).*' RETURN H"
+                }
+            ]
+        },
+ {
+            "name": "7. Find Server 2008 with computer enabled",
+            "queryList": [
+                {
+                    "final": true,
+                    "query": "MATCH (H:Computer) WHERE H.operatingsystem =~ '(?i).*(2008).*' AND H.enabled = true  RETURN H"
+                }
+            ]
+        },
+
+ {
+            "name": "8. Find Windows XP",
+            "queryList": [
+                {
+                    "final": true,
+                    "query": "MATCH (H:Computer) WHERE H.operatingsystem =~ '(?i).*(xp).*' RETURN H"
+                }
+            ]
+        },
+
+ {
+            "name": "9. Find Windows XP with session",
+            "queryList": [
+                {
+                    "final": true,
+                    "query": "MATCH (H:Computer)-[:HasSession]->(y) WHERE H.operatingsystem =~ '(?i).*(xp).*' RETURN H"
+                }
+            ]
+        },
+
+ {
+            "name": "10. Find Windows XP with computer enabled",
+            "queryList": [
+                {
+                    "final": true,
+                    "query": "MATCH (H:Computer) WHERE H.operatingsystem =~ '(?i).*(xp).*' AND H.enabled = true  RETURN H"
+                }
+            ]
+        },
+
+ {
+            "name": "11. Find Windows 7",
+            "queryList": [
+                {
+                    "final": true,
+                    "query": "MATCH (H:Computer) WHERE H.operatingsystem =~ '(?i).*(7).*' RETURN H"
+                }
+            ]
+        },
+
+
+
+ {
+            "name": "12. Find Windows 7 session",
+            "queryList": [
+                {
+                    "final": true,
+                    "query": "MATCH (H:Computer)-[:HasSession]->(y) WHERE H.operatingsystem =~ '(?i).*(7).*' RETURN H"
+                }
+            ]
+        },
+ {
+            "name": "13. Find Windows 7 with computer enabled",
+            "queryList": [
+                {
+                    "final": true,
+                    "query": "MATCH (H:Computer) WHERE H.operatingsystem =~ '(?i).*(7).*' AND H.enabled = true  RETURN H"
+                }
+            ]
+        },
+
+ {
+            "name": "14. Find Server 2012",
+            "queryList": [
+                {
+                    "final": true,
+                    "query": "MATCH (H:Computer) WHERE H.operatingsystem =~ '(?i).*(2012).*' RETURN H"
+                }
+            ]
+        },
+
+ {
+            "name": "15. Find Server 2012 with session",
+            "queryList": [
+                {
+                    "final": true,
+                    "query": "MATCH (H:Computer)-[:HasSession]->(y) WHERE H.operatingsystem =~ '(?i).*(2012).*' RETURN H"
+                }
+            ]
+        },
+
+ {
+            "name": "16. Find Server 2012 with computer enabled",
+            "queryList": [
+                {
+                    "final": true,
+                    "query": "MATCH (H:Computer) WHERE H.operatingsystem =~ '(?i).*(2012).*' AND H.enabled = true  RETURN H"
+                }
+            ]
+        },
+ {
+            "name": "17. Find Server 2016",
+            "queryList": [
+                {
+                    "final": true,
+                    "query": "MATCH (H:Computer) WHERE H.operatingsystem =~ '(?i).*(2016).*' RETURN H"
+                }
+            ]
+        },
+
+ {
+            "name": "18. Find Server 2016 with session",
+            "queryList": [
+                {
+                    "final": true,
+                    "query": "MATCH (H:Computer)-[:HasSession]->(y) WHERE H.operatingsystem =~ '(?i).*(2016).*' RETURN H"
+                }
+            ]
+        },
+ {
+            "name": "19. Find Server 2016 with computer enabled",
+            "queryList": [
+                {
+                    "final": true,
+                    "query": "MATCH (H:Computer) WHERE H.operatingsystem =~ '(?i).*(2016).*' AND H.enabled = true  RETURN H"
+                }
+            ]
+        },
+ {
+            "name": "20. Find Server 2019",
+            "queryList": [
+                {
+                    "final": true,
+                    "query": "MATCH (H:Computer) WHERE H.operatingsystem =~ '(?i).*(2019).*' RETURN H"
+                }
+            ]
+        },
+
+ {
+            "name": "21. Find Server 2019 with session",
+            "queryList": [
+                {
+                    "final": true,
+                    "query": "MATCH (H:Computer)-[:HasSession]->(y) WHERE H.operatingsystem =~ '(?i).*(2019).*' RETURN H"
+                }
+            ]
+        },
+ {
+            "name": "22. Find Server 2019 with computer enabled",
+            "queryList": [
+                {
+                    "final": true,
+                    "query": "MATCH (H:Computer) WHERE H.operatingsystem =~ '(?i).*(2019).*' AND H.enabled = true  RETURN H"
+                }
+            ]
+        },
+
+        {
+            "name": "23. All Users with a homedirectory",
+            "queryList": [
+                {
+                    "final": true,
+                    "query": "MATCH p = (d:Domain)-[r:Contains*1..]->(u:User) WHERE u.homedirectory =~ '(?i).*.*' RETURN p"
+                }
+            ]
+        },
+		
+        {
+            "name": "24. All Computers without LAPS - with session",
+            "queryList": [
+                {
+                    "final": true,
+                    "query": "MATCH p = (d:Domain)-[r:Contains*1..]->(c:Computer)-[:HasSession]->(y) WHERE c.haslaps = false RETURN p"
+                }
+            ]
+        },
+        {
+            "name": "25. All computers without LAPS and the computer is enabled",
+            "queryList": [
+                {
+                    "final": true,
+                    "query": "MATCH p = (d:Domain)-[r:Contains*1..]->(c:Computer) WHERE c.haslaps = false AND c.enabled = true RETURN p"
+                }
+            ]
+
+        },
+
+  {
+            "name": "26. All enabled computers with a description",
+            "queryList": [
+                {
+                    "final": true,
+                    "query": "MATCH p = (d:Domain)-[r:Contains*1..]->(c:Computer) WHERE c.description =~ '(?i).*.*' RETURN p"
+                }
+            ]
+        },
+
+  {
+            "name": "27. All enabled computers with a description containing the word file",
+            "queryList": [
+                {
+                    "final": true,
+                    "query": "MATCH p = (d:Domain)-[r:Contains*1..]->(c:Computer) WHERE c.description =~ '(?i).*file.*' RETURN p"
+                }
+            ]
+        },
+
+  {
+            "name": "28. Locate enabled accounts with display name of admin - put anyname in you like",
+            "queryList": [
+                {
+                    "final": true,
+                    "query": "MATCH p = (d:Domain)-[r:Contains*1..]->(u:User) WHERE u.displayname =~ '(?i).*admin*' AND u.enabled = true RETURN p"
+                }
+            ]
+        },
+
+{
+            "name": "29. Find all users with passwords set over 24 months ago",
+            "queryList": [
+                {
+                    "final": true,
+                    "query": "MATCH (u:User) WHERE u.enabled=true AND u.pwdlastset < (datetime().epochseconds - (720 * 86400)) and NOT u.pwdlastset IN [-1.0, 0.0] RETURN u"
+                }
+            ]
+        },
+
+{
+            "name": "30. Find all users with passwords set over 48 months ago",
+            "queryList": [
+                {
+                    "final": true,
+                    "query": "MATCH (u:User) WHERE u.enabled=true AND u.pwdlastset < (datetime().epochseconds - (1440 * 86400)) and NOT u.pwdlastset IN [-1.0, 0.0] RETURN u"
+                }
+            ]
+        },
+
+{
+            "name": "31. Find all Domain Admins (nested SID S-1-5-21-.*-512) having a session opened on a domain computer",
+            "queryList": [
+                {
+                    "final": true,
+                    "query": "MATCH (m:User)-[r:MemberOf*1..]->(n:Group) WHERE n.objectid =~ '(?i)S-1-5-.*-512' WITH m MATCH q=((m)<-[:HasSession]-(o:Computer)) RETURN q"
+                }
+            ]
+        },
+
+        {
+            "name": "32. Find users that have never logged on and account is still active",
+            "queryList": [
+                {
+                    "final": true,
+                    "query": "MATCH (n:User) WHERE n.lastlogontimestamp=-1.0 AND n.enabled=TRUE RETURN n "
+                }
+            ]
+        },
+
+        {
+            "name": "33. Search for key words in users title such as scientist or Executive - tweak as required",
+            "queryList": [
+                {
+                    "final": true,
+                    "query": "MATCH p = (d:Domain)-[r:Contains*1..]->(u:User) WHERE u.title =~ '(?i).*scientist*' AND u.enabled = true RETURN p"
+                }
+            ]
+        },
