@@ -289,7 +289,7 @@ Open up the customqueries.json file location C:\Users\Add-Account-Name\AppData\R
         },
 
 {
-            "name": "29. Find all users with passwords set over 24 months ago",
+            "name": "29. Find all users with passwords set over 720 days ago (23 months)",
             "queryList": [
                 {
                     "final": true,
@@ -299,7 +299,7 @@ Open up the customqueries.json file location C:\Users\Add-Account-Name\AppData\R
         },
 
 {
-            "name": "30. Find all users with passwords set over 48 months ago",
+            "name": "30. Find all users with passwords set over 1440 days ago (47 months)",
             "queryList": [
                 {
                     "final": true,
