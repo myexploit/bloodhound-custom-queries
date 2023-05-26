@@ -2,87 +2,57 @@ Bloodhound custom queries to help you locate stuff.
 
 Open up the customqueries.json file location C:\Users\Add-Account-Name\AppData\Roaming\bloodhound\customqueries.json and add the below.
 	
-	 {
-            "name": "1. Find Server 2000",
+	{
+	"queries": [
+		{
+			"name": "Bloodhoud query to find accounts with a populated description field which contains passw in their AD profile",
+			"category": "Domain Information",
+			"queryList": [
+				{
+					"final": true,
+					"query": "MATCH (u:User) WHERE EXISTS(u.description) AND u.description =~ '(?i).*passw.*' RETURN u",
+					"allowCollapse": true
+				}
+			]
+		},
+		
+		
+
+ {
+            "name": "Find All Machines",
             "queryList": [
                 {
                     "final": true,
-                    "query": "MATCH (H:Computer) WHERE H.operatingsystem =~ '(?i).*(2000).*' RETURN H"
+                    "query": "MATCH (H:Computer) RETURN H"
+                }
+            ]
+        },
+
+
+ {
+            "name": "Find All High Value Machines such as domain controllers",
+            "queryList": [
+                {
+                    "final": true,
+                    "query": "MATCH p=(n:Computer)-[r:MemberOf*1..]->(m:Group {highvalue:true}) RETURN p"
                 }
             ]
         },
 
  {
-            "name": "2. Find Server 2000 with session",
+            "name": "Find All Machines with session",
             "queryList": [
                 {
                     "final": true,
-                    "query": "MATCH (H:Computer)-[:HasSession]->(y) WHERE H.operatingsystem =~ '(?i).*(2000).*' RETURN H"
+                    "query": "MATCH (H:Computer)-[:HasSession]->(y) RETURN H"
                 }
             ]
         },
 
- {
-            "name": "3. Find Server 2003",
-            "queryList": [
-                {
-                    "final": true,
-                    "query": "MATCH (H:Computer) WHERE H.operatingsystem =~ '(?i).*(2003).*' RETURN H"
-                }
-            ]
-        },
+	 
 
  {
-            "name": "4. Find Server 2003 with session",
-            "queryList": [
-                {
-                    "final": true,
-                    "query": "MATCH (H:Computer)-[:HasSession]->(y) WHERE H.operatingsystem =~ '(?i).*(2003).*' RETURN H"
-                }
-            ]
-        },
-
- {
-            "name": "4a. Find Server 2003 enabled",
-            "queryList": [
-                {
-                    "final": true,
-                    "query": "MATCH (H:Computer) WHERE H.operatingsystem =~ '(?i).*(2003).*' AND H.enabled = true  RETURN H"
-                }
-            ]
-        },
-
- {
-            "name": "5. Find Server 2008",
-            "queryList": [
-                {
-                    "final": true,
-                    "query": "MATCH (H:Computer) WHERE H.operatingsystem =~ '(?i).*(2008).*' RETURN H"
-                }
-            ]
-        },
-
- {
-            "name": "6. Find Server 2008 with session",
-            "queryList": [
-                {
-                    "final": true,
-                    "query": "MATCH (H:Computer)-[:HasSession]->(y) WHERE H.operatingsystem =~ '(?i).*(2008).*' RETURN H"
-                }
-            ]
-        },
- {
-            "name": "7. Find Server 2008 with computer enabled",
-            "queryList": [
-                {
-                    "final": true,
-                    "query": "MATCH (H:Computer) WHERE H.operatingsystem =~ '(?i).*(2008).*' AND H.enabled = true  RETURN H"
-                }
-            ]
-        },
-
- {
-            "name": "8. Find Windows XP",
+            "name": "Find Windows XP",
             "queryList": [
                 {
                     "final": true,
@@ -92,7 +62,7 @@ Open up the customqueries.json file location C:\Users\Add-Account-Name\AppData\R
         },
 
  {
-            "name": "9. Find Windows XP with session",
+            "name": "Find Windows XP with session",
             "queryList": [
                 {
                     "final": true,
@@ -102,7 +72,7 @@ Open up the customqueries.json file location C:\Users\Add-Account-Name\AppData\R
         },
 
  {
-            "name": "10. Find Windows XP with computer enabled",
+            "name": "Find Windows XP with computer enabled",
             "queryList": [
                 {
                     "final": true,
@@ -112,7 +82,7 @@ Open up the customqueries.json file location C:\Users\Add-Account-Name\AppData\R
         },
 
  {
-            "name": "11. Find Windows 7",
+            "name": "Find Windows 7",
             "queryList": [
                 {
                     "final": true,
@@ -124,7 +94,7 @@ Open up the customqueries.json file location C:\Users\Add-Account-Name\AppData\R
 
 
  {
-            "name": "12. Find Windows 7 session",
+            "name": "Find Windows 7 session",
             "queryList": [
                 {
                     "final": true,
@@ -133,7 +103,7 @@ Open up the customqueries.json file location C:\Users\Add-Account-Name\AppData\R
             ]
         },
  {
-            "name": "13. Find Windows 7 with computer enabled",
+            "name": "Find Windows 7 with computer enabled",
             "queryList": [
                 {
                     "final": true,
@@ -141,9 +111,135 @@ Open up the customqueries.json file location C:\Users\Add-Account-Name\AppData\R
                 }
             ]
         },
+		
 
  {
-            "name": "14. Find Server 2012",
+            "name": "Find Windows 10 with computer enabled",
+            "queryList": [
+                {
+                    "final": true,
+                    "query": "MATCH (H:Computer) WHERE H.operatingsystem =~ '(?i).*Windows 10.*' AND H.enabled = true  RETURN H"
+                }
+            ]
+        },
+		
+
+ {
+            "name": "Find Windows 10 with session",
+            "queryList": [
+                {
+                    "final": true,
+                    "query": "MATCH (H:Computer)-[:HasSession]->(y) WHERE H.operatingsystem =~ '(?i).*Windows 10.*' RETURN H"
+                }
+            ]
+        },		
+
+
+ {
+            "name": "Find Windows 11 with computer enabled",
+            "queryList": [
+                {
+                    "final": true,
+                    "query": "MATCH (H:Computer) WHERE H.operatingsystem =~ '(?i).*Windows 11.*' AND H.enabled = true  RETURN H"
+                }
+            ]
+        },
+		
+
+ {
+            "name": "Find Windows 11 with session",
+            "queryList": [
+                {
+                    "final": true,
+                    "query": "MATCH (H:Computer)-[:HasSession]->(y) WHERE H.operatingsystem =~ '(?i).*Windows 11.*' RETURN H"
+                }
+            ]
+        },
+		
+
+
+	 {
+            "name": "Find Server 2000",
+            "queryList": [
+                {
+                    "final": true,
+                    "query": "MATCH (H:Computer) WHERE H.operatingsystem =~ '(?i).*(2000).*' RETURN H"
+                }
+            ]
+        },
+
+ {
+            "name": "Find Server 2000 with session",
+            "queryList": [
+                {
+                    "final": true,
+                    "query": "MATCH (H:Computer)-[:HasSession]->(y) WHERE H.operatingsystem =~ '(?i).*(2000).*' RETURN H"
+                }
+            ]
+        },
+
+ {
+            "name": "Find Server 2003",
+            "queryList": [
+                {
+                    "final": true,
+                    "query": "MATCH (H:Computer) WHERE H.operatingsystem =~ '(?i).*(2003).*' RETURN H"
+                }
+            ]
+        },
+
+ {
+            "name": "Find Server 2003 with session",
+            "queryList": [
+                {
+                    "final": true,
+                    "query": "MATCH (H:Computer)-[:HasSession]->(y) WHERE H.operatingsystem =~ '(?i).*(2003).*' RETURN H"
+                }
+            ]
+        },
+
+ {
+            "name": "Find Server 2003 enabled",
+            "queryList": [
+                {
+                    "final": true,
+                    "query": "MATCH (H:Computer) WHERE H.operatingsystem =~ '(?i).*(2003).*' AND H.enabled = true  RETURN H"
+                }
+            ]
+        },
+
+ {
+            "name": "Find Server 2008",
+            "queryList": [
+                {
+                    "final": true,
+                    "query": "MATCH (H:Computer) WHERE H.operatingsystem =~ '(?i).*(2008).*' RETURN H"
+                }
+            ]
+        },
+
+ {
+            "name": "Find Server 2008 with session",
+            "queryList": [
+                {
+                    "final": true,
+                    "query": "MATCH (H:Computer)-[:HasSession]->(y) WHERE H.operatingsystem =~ '(?i).*(2008).*' RETURN H"
+                }
+            ]
+        },
+ {
+            "name": "Find Server 2008 with computer enabled",
+            "queryList": [
+                {
+                    "final": true,
+                    "query": "MATCH (H:Computer) WHERE H.operatingsystem =~ '(?i).*(2008).*' AND H.enabled = true  RETURN H"
+                }
+            ]
+        },		
+		
+
+ {
+            "name": "Find Server 2012",
             "queryList": [
                 {
                     "final": true,
@@ -153,7 +249,7 @@ Open up the customqueries.json file location C:\Users\Add-Account-Name\AppData\R
         },
 
  {
-            "name": "15. Find Server 2012 with session",
+            "name": "Find Server 2012 with session",
             "queryList": [
                 {
                     "final": true,
@@ -163,7 +259,7 @@ Open up the customqueries.json file location C:\Users\Add-Account-Name\AppData\R
         },
 
  {
-            "name": "16. Find Server 2012 with computer enabled",
+            "name": "Find Server 2012 with computer enabled",
             "queryList": [
                 {
                     "final": true,
@@ -172,7 +268,7 @@ Open up the customqueries.json file location C:\Users\Add-Account-Name\AppData\R
             ]
         },
  {
-            "name": "17. Find Server 2016",
+            "name": "Find Server 2016",
             "queryList": [
                 {
                     "final": true,
@@ -182,7 +278,7 @@ Open up the customqueries.json file location C:\Users\Add-Account-Name\AppData\R
         },
 
  {
-            "name": "18. Find Server 2016 with session",
+            "name": "Find Server 2016 with session",
             "queryList": [
                 {
                     "final": true,
@@ -191,7 +287,7 @@ Open up the customqueries.json file location C:\Users\Add-Account-Name\AppData\R
             ]
         },
  {
-            "name": "19. Find Server 2016 with computer enabled",
+            "name": "Find Server 2016 with computer enabled",
             "queryList": [
                 {
                     "final": true,
@@ -200,7 +296,7 @@ Open up the customqueries.json file location C:\Users\Add-Account-Name\AppData\R
             ]
         },
  {
-            "name": "20. Find Server 2019",
+            "name": "Find Server 2019",
             "queryList": [
                 {
                     "final": true,
@@ -210,7 +306,7 @@ Open up the customqueries.json file location C:\Users\Add-Account-Name\AppData\R
         },
 
  {
-            "name": "21. Find Server 2019 with session",
+            "name": "Find Server 2019 with session",
             "queryList": [
                 {
                     "final": true,
@@ -219,7 +315,7 @@ Open up the customqueries.json file location C:\Users\Add-Account-Name\AppData\R
             ]
         },
  {
-            "name": "22. Find Server 2019 with computer enabled",
+            "name": "Find Server 2019 with computer enabled",
             "queryList": [
                 {
                     "final": true,
@@ -228,8 +324,34 @@ Open up the customqueries.json file location C:\Users\Add-Account-Name\AppData\R
             ]
         },
 
+
+
+
+
+ {
+            "name": "Find Server 2022 with computer enabled",
+            "queryList": [
+                {
+                    "final": true,
+                    "query": "MATCH (H:Computer) WHERE H.operatingsystem =~ '(?i).*(2022).*' AND H.enabled = true  RETURN H"
+                }
+            ]
+        },
+
+
+ {
+            "name": "Find Server 2022 with session",
+            "queryList": [
+                {
+                    "final": true,
+                    "query": "MATCH (H:Computer)-[:HasSession]->(y) WHERE H.operatingsystem =~ '(?i).*(2022).*' RETURN H"
+                }
+            ]
+        },
+
+
         {
-            "name": "23. All Users with a homedirectory",
+            "name": "All Users with a homedirectory",
             "queryList": [
                 {
                     "final": true,
@@ -239,7 +361,7 @@ Open up the customqueries.json file location C:\Users\Add-Account-Name\AppData\R
         },
 		
         {
-            "name": "24. All Computers without LAPS - with session",
+            "name": "All Computers without LAPS - with session",
             "queryList": [
                 {
                     "final": true,
@@ -248,7 +370,7 @@ Open up the customqueries.json file location C:\Users\Add-Account-Name\AppData\R
             ]
         },
         {
-            "name": "25. All computers without LAPS and the computer is enabled",
+            "name": "All computers without LAPS and the computer is enabled",
             "queryList": [
                 {
                     "final": true,
@@ -259,7 +381,7 @@ Open up the customqueries.json file location C:\Users\Add-Account-Name\AppData\R
         },
 
   {
-            "name": "26. All enabled computers with a description",
+            "name": "All enabled computers with a description",
             "queryList": [
                 {
                     "final": true,
@@ -269,7 +391,7 @@ Open up the customqueries.json file location C:\Users\Add-Account-Name\AppData\R
         },
 
   {
-            "name": "27. All enabled computers with a description containing the word file",
+            "name": "All enabled computers with a description containing the word file",
             "queryList": [
                 {
                     "final": true,
@@ -279,7 +401,7 @@ Open up the customqueries.json file location C:\Users\Add-Account-Name\AppData\R
         },
 
   {
-            "name": "28. Locate enabled accounts with display name of admin - put anyname in you like",
+            "name": "Locate enabled accounts with display name of admin - put anyname in you like",
             "queryList": [
                 {
                     "final": true,
@@ -289,7 +411,7 @@ Open up the customqueries.json file location C:\Users\Add-Account-Name\AppData\R
         },
 
 {
-            "name": "29. Find all users with passwords set over 720 days ago (23 months)",
+            "name": "Find all users with passwords set over 720 days ago (23 months)",
             "queryList": [
                 {
                     "final": true,
@@ -299,7 +421,7 @@ Open up the customqueries.json file location C:\Users\Add-Account-Name\AppData\R
         },
 
 {
-            "name": "30. Find all users with passwords set over 1440 days ago (47 months)",
+            "name": "Find all users with passwords set over 1440 days ago (47 months)",
             "queryList": [
                 {
                     "final": true,
@@ -309,7 +431,7 @@ Open up the customqueries.json file location C:\Users\Add-Account-Name\AppData\R
         },
 
 {
-            "name": "31. Find all Domain Admins (nested SID S-1-5-21-.*-512) having a session opened on a domain computer",
+            "name": "Find all Domain Admins (nested SID S-1-5-21-.*-512) having a session opened on a domain computer",
             "queryList": [
                 {
                     "final": true,
@@ -319,7 +441,7 @@ Open up the customqueries.json file location C:\Users\Add-Account-Name\AppData\R
         },
 
         {
-            "name": "32. Find users that have never logged on and account is still active",
+            "name": "Find users that have never logged on and account is still active",
             "queryList": [
                 {
                     "final": true,
@@ -329,7 +451,7 @@ Open up the customqueries.json file location C:\Users\Add-Account-Name\AppData\R
         },
 
         {
-            "name": "33. Search for key words in users title such as scientist or Executive - tweak as required",
+            "name": "Search for key words in users title such as scientist or Executive - tweak as required",
             "queryList": [
                 {
                     "final": true,
@@ -337,3 +459,28 @@ Open up the customqueries.json file location C:\Users\Add-Account-Name\AppData\R
                 }
             ]
         },
+		
+ {
+            "name": "User account has SPN",
+            "queryList": [
+                {
+                    "final": true,
+                    "query": "MATCH (u:User {hasspn: true}) RETURN u"
+                }
+            ]
+        },
+		
+		
+		{
+			"name": "Bloodhoud query to find accounts with a populated description field in their",
+			"category": "Domain Information",
+			"queryList": [
+				{
+					"final": true,
+					"query": "MATCH (u:User) WHERE EXISTS(u.description) RETURN u",
+					"allowCollapse": true
+				}
+			]
+		}
+	]
+}
